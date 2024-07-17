@@ -17,8 +17,8 @@
                 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
                     aria-label="breadcrumb">
                     <ol class="breadcrumb d-flex align-items-center">
-                        <li class="breadcrumb-item"><a href="{{ route('views.loadCategory', $conten->category->id) }}"
-                                class="text-black text-decoration-none fw-bold fs-6">{{ $conten->category->name }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('views.loadCategory', $category->id) }}"
+                                class="text-black text-decoration-none fw-bold fs-6">{{ $category->name }}</a></li>
                         <li class="breadcrumb-item  text-black active" aria-current="page">{{ $conten->category->name }}
                         </li>
                     </ol>
@@ -34,7 +34,7 @@
                 {{ $conten->user->name }}
             </div>
             <div class="share mt-3 d-flex flex-row justify-content-between align-items-center border-bottom pb-3">
-                <a href="{{ route('views.loadOneCategory', $conten->category_id) }}" class="btn border"
+                <a href="{{ route('views.loadCategory', $conten->category_id) }}" class="btn border"
                     data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-title="Trở về {{ $conten->category->name }}"><i class="fa-solid fa-arrow-left"></i>
                 </a>

@@ -13,7 +13,7 @@
                 @if ($categoryData->children)
                     @foreach ($categoryData->children as $cate)
                         <a class="text-black text-decoration-none"
-                            href="{{ route('views.loadOneCategory', $cate) }}">{{ $cate->name }}</a>
+                            href="{{ route('views.loadCategory', $cate) }}">{{ $cate->name }}</a>
                     @endforeach
                 @endif
             </div>
@@ -53,7 +53,7 @@
         </div>
 
         <div class="col-3">
-            @if ($articleAll != [])
+            @if ($categoryData->children()->first() != null)
                 @foreach ($articleAll as $artiOne)
                     @foreach ($artiOne->children as $item)
                         <div>

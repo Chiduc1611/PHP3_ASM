@@ -53,7 +53,7 @@
                     </a>
                     <div class="dropdown-content " style="width: 200px">
                         @foreach ($categorys[$i]->children as $cateItem)
-                            <a href="{{ route('views.loadOneCategory', $cateItem) }}">{{ $cateItem->name }}</a>
+                            <a href="{{ route('views.loadCategory', $cateItem) }}">{{ $cateItem->name }}</a>
                         @endforeach
                     </div>
                 </div>

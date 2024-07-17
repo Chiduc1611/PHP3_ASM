@@ -26,20 +26,11 @@ class ViewsController extends Controller
         $categoryData   = Category::where('id', $category->id)->with('children')->first();
         $articles       = Category::find($category->id)->articleCategory()->latest()->paginate(10);
         $articleAll     = Category::where('id', $category->id)->with("children", "articleCategory")->get();
-
-        return view("client.chitietdanhmuc", compact('categoryData', 'articles', 'articleAll', 'categorys'));
-    }
-
-    public function loadOneCategory(Category $category)
-    {
-        $articleAll     = [];
-        $categorys      = Category::with('children')->whereNull('parent_id')->get();
-        $categoryData   = Category::where('id', $category->id)->with('children')->first();
-        $articles       = Category::find($category->id)->articles()->latest()->paginate(10);
         $articleViews   = Article::where('category_id', $category->id)->orderByDesc('views')->limit(10)->get();
 
-        return view("client.chitietdanhmuc", compact("categorys", "categoryData", "articles", "articleAll", "articleViews"));
+        return view("client.chitietdanhmuc", compact('categoryData', 'articles', 'articleAll', 'categorys', 'articleViews'));
     }
+
     public function loadArticle(Article $article)
     {
         $categorys       = Category::with('children')->whereNull('parent_id')->get();

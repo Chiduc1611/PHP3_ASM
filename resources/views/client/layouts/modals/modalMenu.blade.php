@@ -18,12 +18,12 @@
                                 </a>
                                 @foreach ($cate->children()->limit(4)->get() as $cateItem)
                                     <a class="text-decoration-none text-black d-flex flex-column mt-2"
-                                        href="{{ route('views.loadOneCategory', $cateItem) }}">{{ $cateItem->name }}</a>
+                                        href="{{ route('views.loadCategory', $cateItem) }}">{{ $cateItem->name }}</a>
                                 @endforeach
                                 <div class="more-content" style="display: none">
                                     @foreach ($cate->children()->limit(10)->skip(4)->get() as $cateItem)
                                         <a class="text-decoration-none text-black d-flex flex-column mt-2"
-                                            href="{{ route('views.loadOneCategory', $cateItem) }}">{{ $cateItem->name }}</a>
+                                            href="{{ route('views.loadCategory', $cateItem) }}">{{ $cateItem->name }}</a>
                                     @endforeach
                                 </div>
                                 @if ($cate->children()->count() > 4)
