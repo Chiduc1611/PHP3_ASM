@@ -110,7 +110,7 @@
                                 <div class="d-flex flex-row align-items-center gap-3">
                                     @foreach ($cate->children()->limit(5)->get() as $item)
                                         <a class="text-black text-decoration-none"
-                                            href="{{ route('views.loadOneCategory', $item) }}">{{ $item->name }}</a>
+                                            href="{{ route('views.loadCategory', $item) }}">{{ $item->name }}</a>
                                     @endforeach
                                 </div>
                             </div>
