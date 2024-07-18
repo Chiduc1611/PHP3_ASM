@@ -17,11 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get("/", [ViewsController::class, "index"])->name('views.index');
+
 Route::prefix('client')->group(function () {
-    Route::get("/",                      [ViewsController::class, "index"])->name('views.index');
     Route::get('category/{category}', [ViewsController::class, 'loadCategory'])->name('views.loadCategory');
-    Route::get('article/{article}',      [ViewsController::class, 'loadArticle'])->name('views.loadArticle');
-    Route::post('search',                [ViewsController::class, 'search'])->name('views.search');
+    Route::get('article/{article}',  [ViewsController::class, 'loadArticle'])->name('views.loadArticle');
+    Route::post('search',            [ViewsController::class, 'search'])->name('views.search');
 });
 
 Route::prefix('manage')

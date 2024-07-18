@@ -17,18 +17,42 @@ class ViewsController extends Controller
         $articleViews   = Article::orderByDesc('views')->limit(4)->get();
         $articleRandom  = Article::orderBy('created_at', 'desc')->take(13)->get();
 
-        return view("client.home", compact('article', 'articleViews', 'articleRandom', 'categorys'));
+        return view(
+            "client.home",
+            compact(
+                'article',
+                'articleViews',
+                'articleRandom',
+                'categorys'
+            )
+        );
     }
 
     public function loadCategory(Category $category)
     {
         $categorys      = Category::with('children')->whereNull('parent_id')->get();
         $categoryData   = Category::where('id', $category->id)->with('children')->first();
-        $articles       = Category::find($category->id)->articleCategory()->latest()->paginate(10);
+        $data           = Category::where('id', $category->id)->with('articles', 'articleCategory')->first();
+
+        if ($data->articles->first() == null) {
+            $articles = $data->articleCategory()->latest()->paginate(10);
+        } else {
+            $articles = $data->articles()->latest()->paginate(10);
+        }
+
         $articleAll     = Category::where('id', $category->id)->with("children", "articleCategory")->get();
         $articleViews   = Article::where('category_id', $category->id)->orderByDesc('views')->limit(10)->get();
 
-        return view("client.chitietdanhmuc", compact('categoryData', 'articles', 'articleAll', 'categorys', 'articleViews'));
+        return view(
+            "client.chitietdanhmuc",
+            compact(
+                'categoryData',
+                'articles',
+                'articleAll',
+                'categorys',
+                'articleViews'
+            )
+        );
     }
 
     public function loadArticle(Article $article)
@@ -38,7 +62,15 @@ class ViewsController extends Controller
         $category        = $article->category()->first()->parent()->first();
         $relatedArticles = Article::where([['category_id', $article->category_id], ['id', "<>", $article->id]])->latest()->limit(5)->get();
 
-        return view("client.chitiettin", compact("categorys", "conten", "category", "relatedArticles"));
+        return view(
+            "client.chitiettin",
+            compact(
+                "categorys",
+                "conten",
+                "category",
+                "relatedArticles"
+            )
+        );
     }
 
     public function search(Request $request)
@@ -89,6 +121,15 @@ class ViewsController extends Controller
                 ->get();
         }
 
-        return  view("client.timkiem", compact("categorys", "article", "inputValue", "inputTime", "inputCate"));
+        return  view(
+            "client.timkiem",
+            compact(
+                   "categorys",
+                "article",
+                "inputValue",
+                "inputTime",
+                "inputCate"
+            )
+        );
     }
 }
