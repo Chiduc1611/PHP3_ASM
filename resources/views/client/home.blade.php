@@ -117,7 +117,7 @@
                         </div>
                         <div class="row ms-2 mt-3">
                             <div class="col-12 d-flex flex-row flex-wrap w-100">
-                                @foreach ($cate->articles()->orderByDesc('created_at')->limit(6)->get() as $item)
+                                @foreach ($cate->articleCategory()->orderByDesc('created_at')->limit(6)->get() as $item)
                                     @if ($loop->first)
                                         <div class="post border-end w-75 border-bottom pe-2">
                                             <a href="{{ route('views.loadArticle', $item) }}"

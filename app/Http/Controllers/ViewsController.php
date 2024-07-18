@@ -12,7 +12,7 @@ class ViewsController extends Controller
 {
     public function index()
     {
-        $categorys      = Category::with('children')->whereNull('parent_id')->get();
+        $categorys      = Category::with('children','articleCategory')->whereNull('parent_id')->get();
         $article        = Article::orderByDesc('created_at')->limit(2)->get();
         $articleViews   = Article::orderByDesc('views')->limit(4)->get();
         $articleRandom  = Article::orderBy('created_at', 'desc')->take(13)->get();
