@@ -9,10 +9,8 @@
 <script src="{{ asset('/Admin/assets/extra-libs/multicheck/datatable-checkbox-init.js') }}"></script>
 <script src="{{ asset('/Admin/assets/extra-libs/multicheck/jquery.multicheck.js') }}"></script>
 <script src="{{ asset('/Admin/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     $('#zero_config').DataTable();
 </script>
 
-<script>
-    CKEDITOR.replace('editor1');
-</script>

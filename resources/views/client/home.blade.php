@@ -20,7 +20,7 @@
                             <div class="d-flex flex-column gap-2">
                                 <a href="{{ route('views.loadArticle', $item) }}"
                                     class="fw-semibold text-wrap text-black text-decoration-none">
-                                    <img src="{{ asset($item->img_arti) }}" alt="post-1.png" class="img-fluid">
+                                    <img src="{{ asset($item->img_arti) }}" alt="" class="img-fluid">
                                     <div class="w-100">
                                         {{ $item->title }}
                                     </div>
@@ -42,15 +42,14 @@
                 <div class="row mb-3">
                     <div class="col-12">
                         <div class="d-flex flex-column  gap-2">
-                            <img src="{{ asset('storage/Img/img-post/ZQt57XfKySVvPxzdHDGeFRLcgaL9SwtokiRrwICH.jpg') }}" alt="">
-                            <div class="w-100 d-flex flex-column ">
-                                <a href="" class="fw-semibold h4 text-wrap text-decoration-none text-black">Nga xây
-                                    mạng
-                                    lưới chặn UAV Ukraine tấn công thọc sâu vào lãnh
-                                    thổ </a>
-                                <span class="">Nga có kế hoạch xây dựng một mạng lưới khinh khí cầu lấy cảm hứng từ
-                                    Thế chiến I và II để ngăn chặn các cuộc tấn công bằng UAV tầm xa của Ukraine</span>
-                            </div>
+                            <a href="{{ route('views.loadArticle', $articleHot) }}"
+                                class="text-wrap text-decoration-none text-black">
+                                <img src="{{ asset($articleHot->img_arti) }}" alt="" class="img-fluid">
+                                <div class="w-100 d-flex flex-column ">
+                                    <span class="h4">{{ $articleHot->title }}</span>
+                                    <span>{{ $articleHot->summary }}</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -73,8 +72,7 @@
                                 <div class="w-100">
                                     {{ $item->title }}
                                 </div>
-                                <img src="{{ asset($item->img_arti) }}" alt="post-1.png" width="130px"
-                                    height="80px">
+                                <img src="{{ asset($item->img_arti) }}" alt="post-1.png" width="130px" height="80px">
                             </a>
                         </div>
                     </div>
@@ -90,7 +88,8 @@
                     <a href="{{ route('views.loadArticle', $item) }}" class="text-decoration-none text-black  ">
                         <p class="fw-bold h5">{{ $item->title }}</p>
                         <div class="d-flex h-25 gap-2">
-                            <div><img src="{{ asset($item->img_arti) }}" alt="" class="mt-2" width="160px"></div>
+                            <div><img src="{{ asset($item->img_arti) }}" alt="" class="mt-2" width="160px">
+                            </div>
                             <p class="m-0">{{ $item->summary }}</p>
                         </div>
                     </a>

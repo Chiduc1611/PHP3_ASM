@@ -17,6 +17,7 @@ class Article extends Model
         "title",
         "summary",
         "content",
+        "is_featured"
     ];
     public function category()
     {
@@ -27,5 +28,4 @@ class Article extends Model
     {
         return $this->belongsTo(User::class);
     }
-
 }

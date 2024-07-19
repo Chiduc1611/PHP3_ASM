@@ -13,6 +13,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Bảng quản lý bài viết</h5>
+                                <div class="btn_dieuhuong btn btn-success mt-1 mb-3">
+                                    <a href="{{ route('article.create') }}" style="color: white;">Thêm bài viết</a>
+                                </div>
                                 <div class="table-responsive">
                                     {{-- <form class="search_phim" action="" method="post">
                                         <input type="text" name="kyw" placeholder="Tra cứu Thể loại">
@@ -27,6 +30,7 @@
                                                 <th style="width: 300px">Tóm tắt</th>
                                                 <th style="width: 100px">Người đăng</th>
                                                 <th style="width: 100px">Danh mục</th>
+                                                <th style="width: 100px">Tin hot</th>
                                                 <th style="width: 100px">Hành động</th>
                                             </tr>
                                         </thead>
@@ -40,6 +44,7 @@
                                                     <td>{{ $item->summary }}</td>
                                                     <td>{{ $item->user->name }}</td>
                                                     <td>{{ $item->category->name }}</td>
+                                                    <td>{{ $item->is_featured == 1 ? 'Tin nổi bật' : 'Tin thường' }}</td>
                                                     <td>
                                                         <a href="{{ route('article.show', $item) }}"
                                                             class="btn btn-success w-100">Show</a>
@@ -61,9 +66,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="btn_dieuhuong btn btn-success">
-                    <a href="{{ route('article.create') }}" style="color: white;">Thêm bài viết</a>
                 </div>
             </div>
         </div>

@@ -62,6 +62,14 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="is_featured" class="col-sm-3 text-right control-label col-form-label">Tin nổi
+                                bật</label>
+                            <div class="col-sm-9 mt-2 ps-5 form-check form-switch">
+                                <input class="form-check-input" @if ($article->is_featured == 1) checked @endif
+                                    type="checkbox" role="switch" id="is_featured" name="is_featured" value="1">
+                            </div>
+                        </div>
                     </div>
                     <div class="border-top">
                         <div class="card-body" style="margin-bottom: 50px;">

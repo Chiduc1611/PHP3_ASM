@@ -8,7 +8,8 @@
     <div>
         <div class="page-wrapper">
             <div class="card">
-                <form class="form-horizontal" action="{{ route('article.store') }}" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{ route('article.store') }}" method="post"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="card-body" style="width: 1000px;">
                         <h4 class="card-title">Thêm mới bài viết</h4>
@@ -38,7 +39,7 @@
                         <div class="form-group row">
                             <label for="editor1" class="col-sm-3 text-right control-label col-form-label">Nội dung</label>
                             <div class="col-sm-9">
-                                <textarea name="content" id="editor1"></textarea>
+                                <textarea name="content"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -55,6 +56,14 @@
                                         <option value="{{ $key }}">{{ $item }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="is_featured" class="col-sm-3 text-right control-label col-form-label">Tin nổi
+                                bật</label>
+                            <div class="col-sm-9 mt-2 ps-5 form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="is_featured"
+                                    name="is_featured" value="1">
                             </div>
                         </div>
                     </div>

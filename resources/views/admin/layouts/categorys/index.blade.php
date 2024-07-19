@@ -13,6 +13,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Bảng quản lý danh mục</h5>
+                                <div class="btn_dieuhuong btn btn-success mt-1 mb-3">
+                                    <a href="{{ route('category.create') }}" style="color: white;">Thêm danh mục</a>
+                                </div>
                                 <div class="table-responsive">
                                     {{-- <form class="search_phim" action="" method="post">
                                         <input type="text" name="kyw" placeholder="Tra cứu Thể loại">
@@ -57,9 +60,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="btn_dieuhuong btn btn-success">
-                    <a href="{{ route('category.create') }}" style="color: white;">Thêm danh mục</a>
-                </div>
+
             </div>
         </div>
     </div>

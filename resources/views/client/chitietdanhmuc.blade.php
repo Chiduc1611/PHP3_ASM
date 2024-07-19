@@ -7,15 +7,15 @@
 @section('content')
     <div class="row ms-4 me-4 border-bottom">
         <div class="col-12 d-flex flex-row align-items-center gap-3 ">
-            <h4 class="d-inline-flex" style='color:#DB4A2B;'>
-                {{ $categoryData->name }}</h4>
+            <a href="{{ route('views.loadCategory', $categoryData->id) }}">
+                <h4 class="d-inline-flex" style='color:#DB4A2B;'>
+                    {{ $categoryData->name }}</h4>
+            </a>
             <div class="d-flex flex-wrap align-items-center gap-3">
-                @if ($categoryData->children)
-                    @foreach ($categoryData->children as $cate)
-                        <a class="text-black text-decoration-none"
-                            href="{{ route('views.loadCategory', $cate) }}">{{ $cate->name }}</a>
-                    @endforeach
-                @endif
+                @foreach ($categoryData->children as $cate)
+                    <a class="text-black text-decoration-none @if ($cate->id == $category->id) border-bottom border-2 border-danger @endif"
+                        href="{{ route('views.loadCategory', $cate) }}">{{ $cate->name }}</a>
+                @endforeach
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
                             class="text-black text-decoration-none d-flex flex-row gap-1">
                             <img src="{{ asset($arti->img_arti) }}" alt="" width="250px">
                             <div class="p-3">
-                                <p class="h5 text-wrap">{{ $Arti->title }}</p>
+                                <p class="h5 text-wrap">{{ $arti->title }}</p>
                                 <p class="mt-3">{{ $arti->summary }} </p>
                             </div>
                         </a>
@@ -53,14 +53,14 @@
         </div>
 
         <div class="col-3">
-            @if ($categoryData->children()->first() != null)
+            @if ($data->children()->first() != null)
                 @foreach ($articleAll as $artiOne)
                     @foreach ($artiOne->children as $item)
                         <div>
                             <p class="h5 d-inline-flex border-2 border-bottom border-danger mt-3">{{ $item->name }}</p>
-                            @foreach ($artiOne->articleCategory()->where('category_id',$item->id)->latest()->limit(4)->get() as $arti)
+                            @foreach ($artiOne->articleCategory()->where('category_id', $item->id)->latest()->limit(4)->get() as $arti)
                                 <div class="border-bottom pb-3 mt-1">
-                                    <a href="{{ route('views.loadArticle', $item) }}"
+                                    <a href="{{ route('views.loadArticle', $arti) }}"
                                         class="text-black text-decoration-none fw-medium d-flex flex-row">
                                         {{ $arti->title }}
                                     </a>
