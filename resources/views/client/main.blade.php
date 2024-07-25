@@ -25,7 +25,6 @@
                 @include('client.layouts.ingredient.footer')
             </div>
         </div>
-        @include('client.layouts.modals.modal')
     </div>
 </body>
 @include('client.layouts.ingredient.foot')

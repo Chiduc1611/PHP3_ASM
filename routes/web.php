@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,11 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [ViewsController::class, "index"])->name('views.index');
 
-Route::prefix('client')->group(function () {
-    Route::get('category/{category}', [ViewsController::class, 'loadCategory'])->name('views.loadCategory');
-    Route::get('article/{article}',  [ViewsController::class, 'loadArticle'])->name('views.loadArticle');
-    Route::post('search',            [ViewsController::class, 'search'])->name('views.search');
-});
+Route::prefix('client')
+    ->name('views.')
+    ->controller(ViewsController::class)
+    ->group(function () {
+        Route::get('category/{category}', 'loadCategory')->name('loadCategory');
+        Route::get('article/{article}',   'loadArticle')->name('loadArticle');
+        Route::post('search',             'search')->name('search');
+    });
 
 Route::prefix('manage')
     ->group(function () {
@@ -34,5 +38,4 @@ Route::prefix('manage')
         Route::resource('article', ArticleController::class);
     });
 
-Route::post('login', [UserController::class, 'login'])->name('users.login');
-Route::post('register', [UserController::class, 'register'])->name('users.register');
+Auth::routes();
