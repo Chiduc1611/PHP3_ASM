@@ -9,8 +9,12 @@
                         href="{{ route('category.index') }}" aria-expanded="false"><i class="fa-solid fa-list"></i><span
                             class="hide-menu">Danh mục</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="{{ route('article.index') }}" aria-expanded="false"><i class="fa-solid fa-newspaper"></i><span
-                            class="hide-menu">Bài viết</span></a></li>
+                        href="{{ route('article.index') }}" aria-expanded="false"><i
+                            class="fa-solid fa-newspaper"></i><span class="hide-menu">Bài viết</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="{{ route('views.index') }}" aria-expanded="false"><i
+                            class="fa-regular fa-address-card"></i><span class="hide-menu">Trang chủ người dùng
+                        </span></a></li>
             </ul>
         </nav>
     </div>

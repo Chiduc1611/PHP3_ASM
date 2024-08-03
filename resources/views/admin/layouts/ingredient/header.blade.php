@@ -46,11 +46,14 @@
                             src="/Admin/assets/images/users/1.jpg" alt="user" class="rounded-circle"
                             width="31"></a>
                     <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                        <a class="dropdown-item" href=""><i class="ti-user m-r-5 m-l-5"></i></a>
-                        <a class="dropdown-item" href="index.php?action=&act=doi_mk"><i class="fa-solid fa-lock"></i>
+                        <a class="dropdown-item" href=""><i class="ti-user m-r-5 m-l-5"></i>
+                            {{ Auth::user()->name }}</a>
+                        <a class="dropdown-item" href=""><i class="fa-solid fa-lock"></i>
                             Đổi mật khẩu </a>
-                        <a class="dropdown-item" href="index.php?action=&act=dx"><i
-                                class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                        <form class="dropdown-item" action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button class="btn m-0 p-0 w-100 text-left"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</button>
+                        </form>
                     </div>
                 </li>
             </ul>

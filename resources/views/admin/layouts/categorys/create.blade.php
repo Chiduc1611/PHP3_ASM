@@ -16,6 +16,12 @@
                             {{-- content --}}
                         </div><br>
                         <div class="form-group row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9">
+                                @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                             <label for="name" class="col-sm-3 text-right control-label col-form-label">Tên danh
                                 mục</label>
                             <div class="col-sm-9">

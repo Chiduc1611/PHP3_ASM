@@ -49,6 +49,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                @if (Auth::user()->isAdmin())
+                                    <a class="dropdown-item" href="{{ route('manage.home') }}">Admin</a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

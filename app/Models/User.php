@@ -17,10 +17,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    const TYPE_ADMIN = 'admin';
+    const TYPE_MEMBER = 'member';
     protected $fillable = [
         'name',
         'email',
         'password',
+        'type'
     ];
 
     /**
@@ -43,7 +47,12 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function roles(){
-        return $this->belongsToMany(Role::class);
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, "user_role", "user_id", "role_id");
+    }
+
+    public function isAdmin (){
+        return $this->type === self::TYPE_ADMIN;
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\User;
 use Carbon\Carbon;
 // use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Contracts\Database\Eloquent\Builder;
@@ -13,6 +14,7 @@ class ViewsController extends Controller
 {
     public function index()
     {
+
         $categorys      = Category::with('children', 'articleCategory')->whereNull('parent_id')->get();
         $article        = Article::orderByDesc('created_at')->limit(2)->get();
         $articleViews   = Article::orderByDesc('views')->limit(4)->get();

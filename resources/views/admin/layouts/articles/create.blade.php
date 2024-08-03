@@ -17,13 +17,26 @@
                             {{-- content --}}
                         </div><br>
                         <div class="form-group row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9">
+                                @error('title')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                             <label for="tieu_de" class="col-sm-3 text-right control-label col-form-label"> Tiêu đề</label>
+
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="title" id="tieu_de" autocomplete="off"
-                                    placeholder="Tiêu đề bài viết">
+                                    placeholder="Tiêu đề bài viết" value="{{ old('title') }}">
                             </div>
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9">
+                                @error('summary')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                             <label for="mo_ta" class="col-sm-3 text-right control-label col-form-label"> Mô tả</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="summary" id="mo_ta" autocomplete="off"
@@ -31,12 +44,24 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9">
+                                @error('img_arti')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                             <label for="anh" class="col-sm-3 text-right control-label col-form-label">Ảnh bìa</label>
                             <div class="col-sm-9">
                                 <input type="file" class="form-control" name="img_arti" id="anh">
                             </div>
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9">
+                                @error('content')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                             <label for="editor1" class="col-sm-3 text-right control-label col-form-label">Nội dung</label>
                             <div class="col-sm-9">
                                 <textarea name="content"></textarea>
@@ -48,6 +73,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9">
+                                @error('category_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                             <label for="danh_muc" class="col-sm-3 text-right control-label col-form-label">Danh mục</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="category_id" id="danh_muc">
