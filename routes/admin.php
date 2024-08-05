@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::prefix('manage')
-    ->middleware(['auth', 'admin'])
+    ->middleware(['auth', 'admin', 'verified'])
     ->group(function () {
         Route::get('/', function () {
             return view('admin.home');

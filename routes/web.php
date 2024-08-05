@@ -27,4 +27,4 @@ Route::prefix('client')
         Route::post('search',             'search')->name('search');
     });
 
-Auth::routes();
+Auth::routes(['verify' => true]);

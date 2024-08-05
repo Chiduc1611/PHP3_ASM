@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UpdateView;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\User;
@@ -19,7 +20,7 @@ class ViewsController extends Controller
         $article        = Article::orderByDesc('created_at')->limit(2)->get();
         $articleViews   = Article::orderByDesc('views')->limit(4)->get();
         $articleRandom  = Article::orderBy('created_at', 'desc')->take(13)->get();
-        $articleHot     = Article::where('is_featured', 1 )->latest()->limit(1)->first();
+        $articleHot     = Article::where('is_featured', 1)->latest()->limit(1)->first();
         return view(
             "client.home",
             compact(
@@ -69,6 +70,8 @@ class ViewsController extends Controller
 
     public function loadArticle(Article $article)
     {
+        // dd($article);
+        event(new UpdateView($article));
         $categorys       = Category::with('children')->whereNull('parent_id')->get();
         $conten          = Article::where("id", $article->id)->with(['category', 'user'])->first();
         $category        = $article->category()->first()->parent()->first();

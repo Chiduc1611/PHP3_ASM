@@ -38,8 +38,8 @@ class ArticleController extends Controller
         $data = $request->except('img_arti');
 
         if ($request->hasFile('img_arti')) {
-            $img_Upload = Storage::putFile('Img/img-post', $request->file('img_arti'));
-            $data['img_arti'] = 'storage/' . $img_Upload;
+            $imgUpload = Storage::putFile('Img/img-post', $request->file('img_arti'));
+            $data['img_arti'] = 'storage/' . $imgUpload;
         }
         Article::query()->create($data);
 
@@ -66,22 +66,23 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ArticleRequest $request, Article $article)
+    public function update(Request $request, Article $article)
     {
         $data = $request->except('img_arti');
 
         if ($request->input('is_featured') == null) {
             $data['is_featured'] = null;
         }
+
         if ($request->hasFile('img_arti')) {
-            $img_upload = Storage::putFile('Img/img-post', $request->file('img_arti'));
-            $data['img_arti'] = 'storage/' . $img_upload;
+            $imgUpload = Storage::putFile('Img/img-post', $request->file('img_arti'));
+            $data['img_arti'] = 'storage/' . $imgUpload;
         }
-        $old_Img = $article->img_arti;
+        $oldImg = $article->img_arti;
 
         $article->update($data);
-        if ($request->hasFile('img_arti') && $old_Img && file_exists($old_Img)) {
-            unlink(public_path($old_Img));
+        if ($request->hasFile('img_arti') && $oldImg && file_exists($oldImg)) {
+            unlink(public_path($oldImg));
         }
 
         return back();

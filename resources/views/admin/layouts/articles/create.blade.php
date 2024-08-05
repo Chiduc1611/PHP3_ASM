@@ -11,7 +11,7 @@
                 <form class="form-horizontal" action="{{ route('article.store') }}" method="post"
                     enctype="multipart/form-data">
                     @csrf
-                    <div class="card-body" style="width: 1000px;">
+                    <div class="card-body" style="width: 1500px;">
                         <h4 class="card-title">Thêm mới bài viết</h4>
                         <div style="font-weight: 400; font-size: 20px; ; color: red;">
                             {{-- content --}}
@@ -64,12 +64,12 @@
                             </div>
                             <label for="editor1" class="col-sm-3 text-right control-label col-form-label">Nội dung</label>
                             <div class="col-sm-9">
-                                <textarea name="content"></textarea>
+                                <textarea name="content" style="width: 1100px"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-9">
-                                <input type="hidden" class="form-control" name="user_id" value="1">
+                                <input type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}">
                             </div>
                         </div>
                         <div class="form-group row">

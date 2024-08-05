@@ -79,7 +79,7 @@
 <link href="{{ asset('/Admin/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
-<script src="https://cdn.tiny.cloud/1/t69n8jeh72tn6en0slv6lvjaerg4u4l6wso7kums9weukqxw/tinymce/7/tinymce.min.js"
+<script src="https://cdn.tiny.cloud/1/1wvl1p45k1gu64bm1uiiae857jueitaw3fhjhfifbtkbfhwo/tinymce/7/tinymce.min.js"
     referrerpolicy="origin"></script>
 
 <script script>

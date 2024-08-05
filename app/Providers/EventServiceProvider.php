@@ -2,6 +2,11 @@
 
 namespace App\Providers;
 
+use App\Events\SendMail;
+use App\Events\UpdateView;
+use App\Listeners\IncreaseArticleViews;
+
+use App\Listeners\SendMailForgotPassword;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,6 +23,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        UpdateView::class => [
+            IncreaseArticleViews::class
+        ],
+        // SendMail::class => [
+        //     SendMailForgotPassword::class
+        // ]
     ];
 
     /**

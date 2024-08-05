@@ -12,7 +12,7 @@
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="card-body" style="width: 1000px;">
+                    <div class="card-body" style="width: 1500px;">
                         <h4 class="card-title">Sửa bài viết</h4>
                         <div style="font-weight: 400; font-size: 20px; ; color: red;">
                             {{-- content --}}
@@ -41,13 +41,13 @@
                         <div class="form-group row">
                             <label for="editor1" class="col-sm-3 text-right control-label col-form-label">Nội dung</label>
                             <div class="col-sm-9">
-                                <textarea name="content" id="editor1" style="width: 600px">{!! $article->content !!}</textarea>
+                                <textarea name="content" id="editor1" style="width: 1100px">{!! $article->content !!}</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-9">
-                                <input type="hidden" class="form-control" name="user_id" value="1">
-                            </div>
+                            {{-- <div class="col-sm-9">
+                                <input type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}">
+                            </div> --}}
                         </div>
                         <div class="form-group row">
                             <label for="danh_muc" class="col-sm-3 text-right control-label col-form-label">Danh mục</label>
